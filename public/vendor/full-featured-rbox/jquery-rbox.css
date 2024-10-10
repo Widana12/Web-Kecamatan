@@ -1,0 +1,158 @@
+/*
+// add example for custom nav markup
+// add disable styles for next prev
+// HTML5 Video with Custom Videoposter demo
+  // is loading working? Not sure how to replicate and customize it?
+  // add docs for close on esc disabled
+ // add aria role
+
+
+ // custom close class needs to be deactivated
+ // on closing gallery type, scroll is not handled
+  // instead of fitvids, can we have js for iframe width: 100vw,
+ height: padding-bottom vw; http://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css, doesn't seem to work if you need to constrain the parent width
+// arrays for custom navmarkup defaults
+// separate close and next prev
+// create arrays for custom classes for nav
+// duplication in code in js for next previous logic
+// Video type shows error in console when playing bunny video: Uncaught TypeError: Cannot read property 'pause' of undefined;
+// why data height or height is showing smaller than height i'm defining for video?
+// data height and widths for video and iframes broken? or only height? update demos accorindingly. iframe is not getting height only properly
+// is it a problem to have defaults for next prev close declared in CSS as well as opts inside js?
+// replace bind with on method
+// Namespace
+// opt: throttle window resize;
+*/
+
+* {
+    box-sizing: border-box;
+    /* Remove if included in your site's global styles */
+}
+
+.rbox-overlay {
+    align-items: center;
+    background: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 0;
+    display: flex;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    transition: opacity 0.25s ease;
+    /* animates the fade */
+    z-index: -1;
+}
+
+.rbox-caption {
+    color: #fff;
+    margin-top: 3px;
+}
+
+.rbox-overlay--show {
+    opacity: 1;
+    z-index: 10000;
+}
+
+.rbox-overlay--short {
+    align-items: flex-start;
+    /* for when rbox content is taller than viewport */
+    position: absolute;
+}
+
+.rbox-wrap {
+    display: inline-block;
+    margin: 25px auto;
+    max-width: 80%;
+    position: relative;
+}
+
+.rbox-wrap--inline,
+.rbox-wrap--html,
+.rbox-wrap--ajax {
+    background: #fff;
+    padding: 20px;
+}
+
+.rbox {
+    padding: 10px;
+    position: relative;
+}
+
+.rbox-next,
+.rbox-prev,
+.rbox-close {
+    color: #777;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.rbox-next:hover,
+.rbox-next:focus,
+.rbox-prev:hover,
+.rbox-prev:focus,
+.rbox-close:hover,
+.rbox-close:focus {
+    color: #aaa;
+}
+
+/*.rbox-close:after {
+	content: "\274c";
+}
+
+.rbox-next:after {
+	content: "\25b6";
+}
+
+.rbox-prev:after {
+	content: "\25c0";
+}*/
+
+.rbox-close {
+    font-size: 20px;
+    position: absolute;
+    right: -14px;
+    top: -26px;
+}
+
+.rbox-next,
+.rbox-prev {
+    font-size: 20px;
+    position: absolute;
+    top: 44%;
+}
+
+.rbox-next {
+    right: -30px;
+}
+
+.rbox-prev {
+    left: -30px;
+}
+
+.rbox-content image {
+    height: 70vh;
+}
+
+.rbox-content iframe {
+    height: 70vh;
+    max-width: 100%;
+    width: 100vw;
+}
+
+.rbox-content img,
+.rbox-content video {
+    display: block;
+    height: auto;
+    /* Remove if included in your site's global styles */
+    margin: 0 auto;
+    max-width: 100%;
+    /* Remove if included in your site's global styles */
+}
+
+.rbox-content iframe {
+    border: 0;
+    /* Remove if included in your site's global styles */
+}
